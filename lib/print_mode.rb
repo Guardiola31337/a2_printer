@@ -1,4 +1,8 @@
+require 'chainable'
+
 class PrintMode
+
+  include Chainable
 
   INVERSE_MASK = (1 << 1)
   UPDOWN_MASK = (1 << 2)
@@ -7,9 +11,10 @@ class PrintMode
   DOUBLE_WIDTH_MASK = (1 << 5)
   STRIKE_MASK = (1 << 6)
 
-  def initialize connection
+  def initialize connection, link = nil
     @print_mode = 0
     @connection = connection
+    next_in_chain(link)
   end
 
   def set_print_mode(mask)
