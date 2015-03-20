@@ -97,6 +97,10 @@ class A2Printer
     set_barcode_height(default_for_barcode)
   end
 
+  def set_line_height(val)
+    @connection.write_bytes(27, 51, val)
+  end
+
   def modify_density setting
     @connection.write_bytes(18, 35)
     @connection.write_bytes(setting)
