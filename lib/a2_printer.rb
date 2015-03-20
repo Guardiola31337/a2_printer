@@ -76,10 +76,6 @@ class A2Printer
     bitmap.print
   end
 
-  def set_barcode_height(height)
-    @chain.set_height height
-  end
-
   def print_barcode(text, type)
     @chain.print text, type
   end
@@ -118,7 +114,7 @@ class A2Printer
     default_for_line = 32
     default_for_barcode = 50
     set_line_height(default_for_line)
-    set_barcode_height(default_for_barcode)
+    set_height(default_for_barcode)
   end
 
   def modify_density setting
