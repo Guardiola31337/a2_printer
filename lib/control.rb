@@ -1,11 +1,16 @@
+require 'chainable'
+
 class Control
+
+  include Chainable
 
   ESC_SEQUENCE = 27
   CONTROL_PARAMETERS = 55
   DEFAULT_RESOLUTION = 7
 
-  def initialize(connection)
+  def initialize(connection, link = nil)
     @connection = connection
+    next_in_chain(link)
   end
 
   def offline
