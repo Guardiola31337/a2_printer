@@ -9,7 +9,7 @@ class Barcode
     next_in_chain(link)
   end
 
-  def set_height(height)
+  def set_barcode_height(height)
     @connection.write_bytes(29, 104, height)
   end
 

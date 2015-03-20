@@ -94,7 +94,7 @@ class A2Printer
     default_for_line = 32
     default_for_barcode = 50
     set_line_height(default_for_line)
-    set_height(default_for_barcode)
+    set_barcode_height(default_for_barcode)
   end
 
   def modify_density setting
