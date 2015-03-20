@@ -16,7 +16,7 @@ class A2Printer
 
   def initialize(connection)
     @connection = connection
-    @print_mode = PrintMode.new @connection
+    @chain = PrintMode.new(@connection)
     @barcode = Barcode.new @connection
     @format = Format.new @connection
     @control = Control.new @connection
@@ -148,7 +148,7 @@ class A2Printer
   end
 
   def normal
-    @print_mode.normal
+    @chain.normal
   end
 
   def obtain_bitmap *args
