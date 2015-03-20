@@ -77,7 +77,7 @@ class A2Printer
   end
 
   def reset
-    @chain.reset_control
+    reset_control
   end
 
   def set_default
