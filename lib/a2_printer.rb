@@ -14,6 +14,14 @@ class A2Printer
 
   MAXIMUM_WIDTH = 384
 
+  def method_missing(method, *args, &block)
+    if @chain == nil
+      puts "This request cannot be handled!"
+      return
+    end
+    @chain.__send__(method, *args, &block)
+  end
+
   def initialize(connection)
     @connection = connection
     @chain = PrintMode.new(@connection, Barcode.new(@connection, Format.new(@connection, Control.new(@connection))))
