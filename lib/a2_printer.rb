@@ -76,26 +76,6 @@ class A2Printer
     bitmap.print
   end
 
-  def print_barcode(text, type)
-    @chain.print text, type
-  end
-
-  def offline
-    @chain.offline
-  end
-
-  def online
-    @chain.online
-  end
-
-  def sleep
-    @chain.sleep
-  end
-
-  def wake
-    @chain.wake
-  end
-
   def reset
     @chain.reset_control
   end
