@@ -112,10 +112,6 @@ class A2Printer
     char == NOT_ALLOWED_CHAR
   end
 
-  def normal
-    @chain.normal
-  end
-
   def obtain_bitmap *args
     only_source_provided = (args.size == 1)
 
