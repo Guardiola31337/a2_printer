@@ -29,7 +29,7 @@ class Control
     @connection.write_bytes(255)
   end
 
-  def reset
+  def reset_control
     @connection.write_bytes(ESC_SEQUENCE, 64)
   end
 

@@ -16,13 +16,12 @@ class A2Printer
 
   def initialize(connection)
     @connection = connection
-    @chain = PrintMode.new(@connection, Barcode.new(@connection, Format.new(@connection)))
-    @control = Control.new @connection
+    @chain = PrintMode.new(@connection, Barcode.new(@connection, Format.new(@connection, Control.new(@connection))))
   end
 
   def begin(heat_time)
     reset
-    @control.set_parameters heat_time
+    @chain.set_parameters heat_time
     modify_density(calculate_density_setting)
   end
 
@@ -94,23 +93,23 @@ class A2Printer
   end
 
   def offline
-    @control.offline
+    @chain.offline
   end
 
   def online
-    @control.online
+    @chain.online
   end
 
   def sleep
-    @control.sleep
+    @chain.sleep
   end
 
   def wake
-    @control.wake
+    @chain.wake
   end
 
   def reset
-    @control.reset
+    @chain.reset_control
   end
 
   def set_default
