@@ -28,7 +28,7 @@ class A2Printer
   def reset_formatting
     online
     normal
-    @chain.reset
+    @chain.reset_format
     set_default_heights
   end
 

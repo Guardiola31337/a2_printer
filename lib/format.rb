@@ -44,7 +44,7 @@ class Format
     @connection.write_bytes(0x1B, 0x61, ALIGNMENT[position])
   end
 
-  def reset
+  def reset_format
     underline_off
     justify(:left)
   end
