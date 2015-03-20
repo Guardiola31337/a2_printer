@@ -1,4 +1,8 @@
+require 'chainable'
+
 class Format
+
+  include Chainable
 
   UNDERLINES = {
     none: 0,
@@ -18,8 +22,9 @@ class Format
     right: 2
   }
 
-  def initialize connection
+  def initialize connection, link = nil
     @connection = connection
+    next_in_chain(link)
   end
 
   def set_size(size)
