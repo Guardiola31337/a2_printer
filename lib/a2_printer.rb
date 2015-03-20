@@ -16,8 +16,7 @@ class A2Printer
 
   def initialize(connection)
     @connection = connection
-    @chain = PrintMode.new(@connection)
-    @barcode = Barcode.new @connection
+    @chain = PrintMode.new(@connection, Barcode.new(@connection))
     @format = Format.new @connection
     @control = Control.new @connection
   end
@@ -88,11 +87,11 @@ class A2Printer
   end
 
   def set_barcode_height(height)
-    @barcode.set_height height
+    @chain.set_height height
   end
 
   def print_barcode(text, type)
-    @barcode.print text, type
+    @chain.print text, type
   end
 
   def offline
