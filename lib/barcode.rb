@@ -1,7 +1,12 @@
+require 'chainable'
+
 class Barcode
 
-  def initialize connection
+  include Chainable
+
+  def initialize connection, link = nil
     @connection = connection
+    next_in_chain(link)
   end
 
   def set_height(height)
