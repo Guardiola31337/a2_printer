@@ -29,14 +29,14 @@ class A2Printer
 
   def begin(heat_time)
     reset
-    @chain.set_parameters heat_time
+    set_parameters heat_time
     modify_density(calculate_density_setting)
   end
 
   def reset_formatting
     online
     normal
-    @chain.reset_format
+    reset_format
     set_default_heights
   end
 
@@ -67,22 +67,6 @@ class A2Printer
   def write(char)
     return if not_allowed? char
     @connection.write_bytes(char)
-  end
-
-  def set_size(size)
-    @chain.set_size size
-  end
-
-  def underline_on(weight)
-    @chain.underline_on weight
-  end
-
-  def underline_off
-    @chain.underline_off
-  end
-
-  def justify(position)
-    @chain.justify position
   end
 
   def print_bitmap(*args)
