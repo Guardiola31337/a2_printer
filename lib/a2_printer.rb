@@ -16,8 +16,7 @@ class A2Printer
 
   def initialize(connection)
     @connection = connection
-    @chain = PrintMode.new(@connection, Barcode.new(@connection))
-    @format = Format.new @connection
+    @chain = PrintMode.new(@connection, Barcode.new(@connection, Format.new(@connection)))
     @control = Control.new @connection
   end
 
@@ -30,7 +29,7 @@ class A2Printer
   def reset_formatting
     online
     normal
-    @format.reset
+    @chain.reset
     set_default_heights
   end
 
@@ -64,19 +63,19 @@ class A2Printer
   end
 
   def set_size(size)
-    @format.set_size size
+    @chain.set_size size
   end
 
   def underline_on(weight)
-    @format.underline_on weight
+    @chain.underline_on weight
   end
 
   def underline_off
-    @format.underline_off
+    @chain.underline_off
   end
 
   def justify(position)
-    @format.justify position
+    @chain.justify position
   end
 
   def print_bitmap(*args)
